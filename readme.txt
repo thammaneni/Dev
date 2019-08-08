@@ -112,6 +112,93 @@ def home_view(request,*args,**kwargs):
 
 here request is URL page request object and arguments are passed by user request page, {} context dict represents users input parameters
 
+added all views and create template directory and create html files for each view.
+
+Template Inheritance:
+--------------------
+
+base.html - is the one to having proto type of all backgroud html views
+
+we have to user tags to extends base.html file to all other html files.
+
+{% extends 'base.html' %}
+
+{% block content %}
+your customized template goes here 
+{% endblock %}
+====================
+
+include html pages:
+------------------
+We can define short html pages and import them in several pages
+
+navbar.html - contains only navbar options
+
+to include navbar.html we have to use {% include 'navbar.html' %}
+
+Rendering context into HTML pages:
+---------------------------------
+In case of sending date from view functions to html pages, need to define dict variable(Recomended) or normal variable and pass it in reder function
+
+
+def about_view(request, *args, **kwargs):
+    my_context={
+        'title':"This is Context variable of about page",
+        'price': 2365.25,
+        'name': 'Soap'
+    }
+    return render(request, 'about.html', my_context)
+
+
+call variables in HTML files as :
+
+{% block content %}
+<h2> This is About page </h2>
+{{ title }} </br>
+{{ price }}</br>
+{{ name }}</br>
+
+{% endblock %}
+
+for loop:
+--------
+<ul>
+{% for item in my_list %}
+    <li> {{ forloop.counter}} - {{ item }}</li>
+{% endfor %}
+
+conditioning in templates:
+{% if name == 'Soap' %}
+    <H1>Name is Soap</H1>
+{% else %}
+    <h2> undefined </h2>
+{% endif %}
+
+
+for more Built in template tags and filters:
+https://docs.djangoproject.com/en/2.2/ref/templates/builtins/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

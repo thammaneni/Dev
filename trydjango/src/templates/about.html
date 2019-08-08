@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h2> This is About page </h2>
+{{ title }} </br>
+{{ price }}</br>
+{{ name }}</br>
+
+{% if name == 'Soap' %}
+	<H1>Name is Soap</H1>
+{% else %}
+	<h2> undefined </h2>
+{% endif %}
+
+{% endblock %}
