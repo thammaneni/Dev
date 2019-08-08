@@ -8,9 +8,10 @@ def home_view(request,*args,**kwargs):
 	
 def about_view(request, *args, **kwargs):
 	my_context={
-		'title':"This is Context variable of about page",
+		'title':"this is Context variable of about page",
 		'price': 2365.25,
-		'name': 'Soap'
+		'name': 'Soap',
+		'msg':'<h1> This is HTML format text </h1>'
 	}
 	return render(request, 'about.html', my_context)
 	

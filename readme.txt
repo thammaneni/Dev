@@ -178,6 +178,25 @@ conditioning in templates:
 for more Built in template tags and filters:
 https://docs.djangoproject.com/en/2.2/ref/templates/builtins/
 
+------------
+render data from Database.
+
+need to define view in product views.py
+
+from .models import product   - will import model from database
+
+obj=Product.objects.all()     - will fetch data from database
+
+we will render obj as context variable to html pages.
+-------------
+Keep all stuff related to an APP inside of it. it is easy to export an app to other places
+---------------
+
+Working with Forms:
+==================
+
+
+
 
 
 

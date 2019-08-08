@@ -2,7 +2,7 @@
 
 {% block content %}
 <h2> This is About page </h2>
-{{ title }} </br>
+{{ title | capfirst }} </br>
 {{ price }}</br>
 {{ name }}</br>
 
@@ -12,4 +12,4 @@
 	<h2> undefined </h2>
 {% endif %}
 
-{% endblock %}
+{% endblock %} 
