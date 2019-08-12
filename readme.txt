@@ -53,9 +53,9 @@ Available subcommands:
 
 settings.py
 ===========
-stuff like that
+stuff like that used to configure entire projuct components in one place.
 
-
+=>python manage.py makemigrations
 =>python manage.py migrate
 to make all changes saved/migrated.
 
@@ -95,7 +95,7 @@ Customising model Product:
 Here, blank=True referes optional Field, no need to enter any value.
 if blank is False, it is mandatory Field.
 
-for all changes you need to run:
+for all model/db changes you need to run:
 python manage.py makemigrations
 python manage.py migrate
 
@@ -136,9 +136,9 @@ navbar.html - contains only navbar options
 
 to include navbar.html we have to use {% include 'navbar.html' %}
 
-Rendering context into HTML pages:
+Rendering context to HTML pages:
 ---------------------------------
-In case of sending date from view functions to html pages, need to define dict variable(Recomended) or normal variable and pass it in reder function
+In case of sending date from view functions to html pages, need to define dict variable(Recomended) or normal variable and pass it in reder function argument.
 
 
 def about_view(request, *args, **kwargs):
@@ -195,20 +195,22 @@ Keep all stuff related to an APP inside of it. it is easy to export an app to ot
 Working with Forms:
 ==================
 
+easy way:
+--------
+Create form.py file and 
 
+import forms from django
 
+import model from which you want create form
 
+define class and create meta class for model and it's fields
 
+create a view - import form.py module and create form object with form.py module class name
 
+render form object with newly created HTML file. and create HTML file and call form object to view properties
 
-
-
-
-
-
-
-
-
+create url for new view to access Creation Form.
+------------------------------------------------
 
 
 
