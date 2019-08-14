@@ -5,14 +5,17 @@ from .forms import ProductForm
 # Create your views here.
 
 def product_create_view(request):
-	form = ProductForm(request.POST or None)
+	my_form = ProductForm()
 
-	if form.is_valid():
-		form.save()
-		form=ProductForm()  # refresh new page after submission
+	if request.method == 'POST':
+		my_form = ProductForm(request.POST)
 
+		if my_form.is_valid():
+			print(my_form.cleaned_data)
+			Product.objects.create(**my_form.cleaned_data)
+			print(request.POST)
 	context = {
-		'form' : form
+		'form' : my_form
 	}
 	return render(request, 'products/product_create_form.html', context)
 
@@ -25,3 +28,6 @@ def product_detail_view(request):
 	}
 	return render(request,'products/product_details.html', context)
 
+def product_view(request):
+	print(request.POST)
+	return render(request,'products/product_details.html',{})
